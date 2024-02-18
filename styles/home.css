@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
-:root{
+
+:root {
     --dark: #0B0D17;
     --light: #FFFFFF;
     --very-light-gray: #D0D6F9;
@@ -14,16 +15,16 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     height: 100vh;
 }
 
-.bg-home{
+.bg-home {
     background: url("../starter-code/assets/home/background-home-mobile.jpg") no-repeat center center;
 }
 
 
-.btn-explore{
+.btn-explore {
     width: 10rem;
     height: 10rem;
     background-color: var(--light);
@@ -31,62 +32,71 @@ body{
     color: var(--dark);
 }
 
-.btn-explore:hover{
+.btn-explore:hover {
     box-shadow: #0b0d17d3 0px 0px 0px 30px;
 }
 
-.heading-5,.sub-heading-2{
+.heading-5,
+.sub-heading-2 {
     font-family: 'Barlow Condensed', sans-serif;
 }
 
-.heading-1,.heading-2,.heading-3,.heading-4{
+.heading-1,
+.heading-2,
+.heading-3,
+.heading-4 {
     font-family: 'Bellefair', sans-serif;
 }
 
-.heading-1{
+.heading-1 {
     font-size: 150px;
 }
 
-.heading-2{
+.heading-2 {
     font-size: 100px;
 }
 
-.heading-3{
+.heading-3 {
     font-size: 56px;
 }
 
-.heading-4{
+.heading-4 {
     font-size: 32px;
 }
 
-.heading-5{
+.heading-5 {
     font-size: 28px;
     letter-spacing: 2px;
 }
 
-.sub-heading-1{
+.sub-heading-1 {
     font-size: 28px;
 }
 
-.sub-heading-2{
+.sub-heading-2 {
     font-size: 14px;
     letter-spacing: 2.35px;
 }
 
-.nav-text{
+.nav-text {
     font-size: 16px;
     letter-spacing: 2.35px;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     border-bottom: 1px solid var(--very-light-gray);
 }
 
-.bg-home-md{
+.bg-home-md {
     background: url("../starter-code/assets/home/background-home-tablet.jpg") no-repeat center center;
 }
 
-.bg-home-lg{
+.bg-home-lg {
     background: url("../starter-code/assets/home/background-home-desktop.jpg") no-repeat center center;
 }
 
+#offcanvasNavbar {
+    background-color: rgba(32, 32, 32, 0.3);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+}
