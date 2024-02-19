@@ -20,7 +20,7 @@ body {
 }
 
 .bg-home {
-    background: url("../starter-code/assets/home/background-home-mobile.jpg") no-repeat center center;
+    background: url("../assets/home/background-home-mobile.jpg") no-repeat center center;
 }
 
 
@@ -88,11 +88,11 @@ body {
 }
 
 .bg-home-md {
-    background: url("../starter-code/assets/home/background-home-tablet.jpg") no-repeat center center;
+    background: url("../assets/home/background-home-tablet.jpg") no-repeat center center;
 }
 
 .bg-home-lg {
-    background: url("../starter-code/assets/home/background-home-desktop.jpg") no-repeat center center;
+    background: url("../assets/home/background-home-desktop.jpg") no-repeat center center;
 }
 
 #offcanvasNavbar {

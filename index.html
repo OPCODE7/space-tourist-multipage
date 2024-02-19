@@ -17,8 +17,9 @@
 
 <body>
   <div class="container-fluid bg-home w-100 h-100 p-0">
+    <div data-include="starter-code/nav.html"></div>
 
-    <nav class="navbar navbar-expand-lg">
+    <!-- <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a href="index.html">
           <img src="starter-code/assets/shared/logo.svg" class="img-fluid w-75 h-75" alt="logo">
@@ -55,7 +56,7 @@
           </div>
         </div>
       </div>
-    </nav>
+    </nav> -->
 
 
     <main class="container-fluid row mt-5">
@@ -92,7 +93,7 @@
       setBackgroundResponsive();
     });
 
-    function setBackgroundResponsive(){
+    function setBackgroundResponsive() {
       if (window.innerWidth < 767) {
         $background.classList.add("bg-home");
         if ($background.classList.contains("bg-home-md")) $background.classList.remove("bg-home-md");
@@ -102,16 +103,17 @@
         $background.classList.add("bg-home-md");
         if ($background.classList.contains("bg-home")) $background.classList.remove("bg-home");
         if ($background.classList.contains("bg-home-lg")) $background.classList.remove("bg-home-lg");
-      } 
-      if(window.innerWidth >= 1024){
-          $background.classList.add("bg-home-lg");
-          if($background.classList.contains("bg-home")) $background.classList.remove("bg-home");
-          if($background.classList.contains("bg-home-md")) $background.classList.remove("bg-home-md");
+      }
+      if (window.innerWidth >= 1024) {
+        $background.classList.add("bg-home-lg");
+        if ($background.classList.contains("bg-home")) $background.classList.remove("bg-home");
+        if ($background.classList.contains("bg-home-md")) $background.classList.remove("bg-home-md");
       }
     }
 
 
   </script>
+  <script src="js/include_layout.js"></script>
 </body>
 
 </html>
