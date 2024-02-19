@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div class="container-fluid bg-home w-100 h-100 p-0">
+    <div class="container-fluid bg-destination w-100 h-100 p-0">
         <div data-include="nav.html"></div>
     </div>
 
@@ -25,6 +25,15 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
     <script src="../js/include_layout.js"></script>
+    <script type="module">
+        import setBackgroundResponsive from "../js/background_responsive.js";
+        const d= document,
+        $background= d.querySelector(".bg-destination");
+        d.addEventListener("DOMContentLoaded", e => setBackgroundResponsive($background,"bg-destination","bg-destination-md","bg-destination-lg"));
+
+        window.addEventListener("resize", e => setBackgroundResponsive($background,"bg-destination","bg-destination-md","bg-destination-lg"));
+
+    </script>
 </body>
 
 </html>

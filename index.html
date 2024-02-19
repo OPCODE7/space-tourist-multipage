@@ -80,36 +80,19 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
-  <script>
+  <script type="module">
+    import setBackgroundResponsive from "/js/background_responsive.js";
     const d = document;
     const $background = d.querySelector(".bg-home");
 
     window.addEventListener("resize", e => {
-      setBackgroundResponsive();
+      setBackgroundResponsive($background,"bg-home","bg-home-md","bg-home-lg");
     });
 
 
     d.addEventListener("DOMContentLoaded", e => {
-      setBackgroundResponsive();
+      setBackgroundResponsive($background,"bg-home","bg-home-md","bg-home-lg");
     });
-
-    function setBackgroundResponsive() {
-      if (window.innerWidth < 767) {
-        $background.classList.add("bg-home");
-        if ($background.classList.contains("bg-home-md")) $background.classList.remove("bg-home-md");
-        if ($background.classList.contains("bg-home-lg")) $background.classList.remove("bg-home-lg");
-      }
-      if (window.innerWidth >= 767) {
-        $background.classList.add("bg-home-md");
-        if ($background.classList.contains("bg-home")) $background.classList.remove("bg-home");
-        if ($background.classList.contains("bg-home-lg")) $background.classList.remove("bg-home-lg");
-      }
-      if (window.innerWidth >= 1024) {
-        $background.classList.add("bg-home-lg");
-        if ($background.classList.contains("bg-home")) $background.classList.remove("bg-home");
-        if ($background.classList.contains("bg-home-md")) $background.classList.remove("bg-home-md");
-      }
-    }
 
 
   </script>

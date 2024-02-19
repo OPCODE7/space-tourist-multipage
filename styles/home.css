@@ -95,6 +95,16 @@ body {
     background: url("../assets/home/background-home-desktop.jpg") no-repeat center center;
 }
 
+.bg-destination{
+    background: url("../assets/destination/background-destination-mobile.jpg") no-repeat center center;
+}
+.bg-destination-md{
+    background: url("../assets/destination/background-destination-tablet.jpg") no-repeat center center;
+}
+.bg-destination-lg{
+    background: url("../assets/destination/background-destination-desktop.jpg") no-repeat center center;
+}
+
 #offcanvasNavbar {
     background-color: rgba(32, 32, 32, 0.3);
     -webkit-backdrop-filter: blur(15px);
