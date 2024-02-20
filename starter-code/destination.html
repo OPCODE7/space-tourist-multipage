@@ -19,19 +19,62 @@
 <body>
     <div class="container-fluid bg-destination w-100 h-100 p-0">
         <div data-include="nav.html"></div>
+
+        <main class="row px-3 w-100 h-100 text-center m-0">
+            <div class="col-12 col-md-6 my-2 d-flex flex-column align-items-center">
+                <h1 class="text-light heading-5 align-self-md-start fs-4"><span class="text-secondary fw-bold">01</span>
+                    Pick your Destination</h1>
+                <img src="../assets/destination/image-moon.png" alt="moon-image" class="img-fluid w-75 h-75 mt-4">
+            </div>
+            <div class="col-12 col-md-6">
+                <ul class="d-flex justify-content-evenly p-0">
+                    <li>
+                        <a href="#" class="text-decoration-none text-white-50 fw-light nav-text">MOON</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-decoration-none text-white-50 fw-light nav-text">MARS</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-decoration-none text-white-50 fw-light nav-text">EUROPA</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-decoration-none text-white-50 fw-light nav-text">TITAN</a>
+                    </li>
+                </ul>
+                <h1 class="heading-3 text-white text-center mt-3">MOON</h1>
+                <p class="fw-light text-white-50 text-center mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing
+                    elit. Harum odio, quis delectus exercitationem beatae quam iste doloremque numquam vitae? Vel
+                    sapiente aliquid quod perferendis deserunt officia fugiat! Dicta, non enim.</p>
+                <div class="border border-bottom-0 border-secondary mb-4"></div>
+                <div class="text-center pt-2 pb-4 text-white-50 h-auto">
+                    <h4 class="sub-heading-2">AVG. DISTANCE</h4>
+                    <span id="avg-distance" class="sub-heading-1 text-white">384,400 km</span>
+                    <h4 class="sub-heading-2 mt-4">EST. TRAVEL TIME</h4>
+                    <span id="travel-time" class="sub-heading-1 text-white">3 days</span>
+                </div>
+            </div>
+        </main>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
     <script src="../js/include_layout.js"></script>
     <script type="module">
+        import getData from "../js/get_data.js";
         import setBackgroundResponsive from "../js/background_responsive.js";
-        const d= document,
-        $background= d.querySelector(".bg-destination");
-        d.addEventListener("DOMContentLoaded", e => setBackgroundResponsive($background,"bg-destination","bg-destination-md","bg-destination-lg"));
+        const d = document,
+            $background = d.querySelector(".bg-destination");
+        d.addEventListener("DOMContentLoaded", e => {
+            setBackgroundResponsive($background, "bg-destination", "bg-destination-md", "bg-destination-lg");
+            let json = getData();
 
-        window.addEventListener("resize", e => setBackgroundResponsive($background,"bg-destination","bg-destination-md","bg-destination-lg"));
+            json.then(data => console.log(data));
+        });
+
+        window.addEventListener("resize", e => setBackgroundResponsive($background, "bg-destination", "bg-destination-md", "bg-destination-lg"));
+
+
 
     </script>
 </body>
