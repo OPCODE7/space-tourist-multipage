@@ -24,33 +24,31 @@
             <div class="col-12 col-md-6 my-2 d-flex flex-column align-items-center">
                 <h1 class="text-light heading-5 align-self-md-start fs-4"><span class="text-secondary fw-bold">01</span>
                     Pick your Destination</h1>
-                <img src="../assets/destination/image-moon.png" alt="moon-image" class="img-fluid w-75 h-75 mt-4">
+                <img src="" alt="" class="img-fluid w-75 h-75 mt-4" id="destination-image">
             </div>
             <div class="col-12 col-md-6">
                 <ul class="d-flex justify-content-evenly p-0">
                     <li>
-                        <a href="#" class="text-decoration-none text-white-50 fw-light nav-text">MOON</a>
+                        <a href="#" class="text-decoration-none text-white-50 fw-light nav-text" id="moon-destination">MOON</a>
                     </li>
                     <li>
-                        <a href="#" class="text-decoration-none text-white-50 fw-light nav-text">MARS</a>
+                        <a href="#" class="text-decoration-none text-white-50 fw-light nav-text" id="mars-destination">MARS</a>
                     </li>
                     <li>
-                        <a href="#" class="text-decoration-none text-white-50 fw-light nav-text">EUROPA</a>
+                        <a href="#" class="text-decoration-none text-white-50 fw-light nav-text" id="europa-destination">EUROPA</a>
                     </li>
                     <li>
-                        <a href="#" class="text-decoration-none text-white-50 fw-light nav-text">TITAN</a>
+                        <a href="#" class="text-decoration-none text-white-50 fw-light nav-text" id="titan-destination">TITAN</a>
                     </li>
                 </ul>
-                <h1 class="heading-3 text-white text-center mt-3">MOON</h1>
-                <p class="fw-light text-white-50 text-center mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing
-                    elit. Harum odio, quis delectus exercitationem beatae quam iste doloremque numquam vitae? Vel
-                    sapiente aliquid quod perferendis deserunt officia fugiat! Dicta, non enim.</p>
+                <h1 class="heading-3 text-white text-center mt-3 text-uppercase" id="destination-name"></h1>
+                <p class="fw-light text-white-50 text-center mb-4" id="destination-info"></p>
                 <div class="border border-bottom-0 border-secondary mb-4"></div>
                 <div class="text-center pt-2 pb-4 text-white-50 h-auto">
                     <h4 class="sub-heading-2">AVG. DISTANCE</h4>
-                    <span id="avg-distance" class="sub-heading-1 text-white">384,400 km</span>
+                    <span id="avg-distance" class="sub-heading-1 text-white"></span>
                     <h4 class="sub-heading-2 mt-4">EST. TRAVEL TIME</h4>
-                    <span id="travel-time" class="sub-heading-1 text-white">3 days</span>
+                    <span id="travel-time" class="sub-heading-1 text-white"></span>
                 </div>
             </div>
         </main>
@@ -64,12 +62,66 @@
         import getData from "../js/get_data.js";
         import setBackgroundResponsive from "../js/background_responsive.js";
         const d = document,
-            $background = d.querySelector(".bg-destination");
+                $background = d.querySelector(".bg-destination"),
+                $destinationName= d.getElementById("destination-name"),
+                $destinationInfo= d.getElementById("destination-info"),
+                $avgDistance= d.getElementById("avg-distance"),
+                $travelTime= d.getElementById("travel-time"),
+                $imgDestination= d.getElementById("destination-image");
         d.addEventListener("DOMContentLoaded", e => {
             setBackgroundResponsive($background, "bg-destination", "bg-destination-md", "bg-destination-lg");
-            let json = getData();
+            getData().then(data => {
+                $destinationName.textContent= data.destinations[0].name;
+                $destinationInfo.textContent= data.destinations[0].description;
+                $avgDistance.textContent= data.destinations[0].distance;
+                $travelTime.textContent= data.destinations[0].travel;
+                $imgDestination.src= data.destinations[0].images.png;
+                $imgDestination.alt= data.destinations[0].name;
+            });
+        });
 
-            json.then(data => console.log(data));
+
+        d.addEventListener("click", e => {
+            if(e.target.matches("#moon-destination")){
+                getData().then(data => {
+                $destinationName.textContent= data.destinations[0].name;
+                $destinationInfo.textContent= data.destinations[0].description;
+                $avgDistance.textContent= data.destinations[0].distance;
+                $travelTime.textContent= data.destinations[0].travel;
+                $imgDestination.src= data.destinations[0].images.png;
+                $imgDestination.alt= data.destinations[0].name;
+            });
+            }
+            if(e.target.matches("#mars-destination")){
+                getData().then(data => {
+                $destinationName.textContent= data.destinations[1].name;
+                $destinationInfo.textContent= data.destinations[1].description;
+                $avgDistance.textContent= data.destinations[1].distance;
+                $travelTime.textContent= data.destinations[1].travel;
+                $imgDestination.src= data.destinations[1].images.png;
+                $imgDestination.alt= data.destinations[1].name;
+            });
+            }
+            if(e.target.matches("#europa-destination")){
+                getData().then(data => {
+                $destinationName.textContent= data.destinations[2].name;
+                $destinationInfo.textContent= data.destinations[2].description;
+                $avgDistance.textContent= data.destinations[2].distance;
+                $travelTime.textContent= data.destinations[2].travel;
+                $imgDestination.src= data.destinations[2].images.png;
+                $imgDestination.alt= data.destinations[2].name;
+            });
+            }
+            if(e.target.matches("#titan-destination")){
+                getData().then(data => {
+                $destinationName.textContent= data.destinations[3].name;
+                $destinationInfo.textContent= data.destinations[3].description;
+                $avgDistance.textContent= data.destinations[3].distance;
+                $travelTime.textContent= data.destinations[3].travel;
+                $imgDestination.src= data.destinations[3].images.png;
+                $imgDestination.alt= data.destinations[3].name;
+            });
+            }
         });
 
         window.addEventListener("resize", e => setBackgroundResponsive($background, "bg-destination", "bg-destination-md", "bg-destination-lg"));

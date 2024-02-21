@@ -4,7 +4,6 @@ export default async function getData(){
             json = await res.json();
 
         if (!res.ok) throw { status: res.status, statusText: res.statusText };
-
         return json;
     } catch (err) {
         let message = err.statusText || "Ocurrio un error";
