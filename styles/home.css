@@ -15,9 +15,6 @@
     box-sizing: border-box;
 }
 
-body {
-    min-height: 100vh;
-}
 
 .bg-home {
     background: url("../assets/home/background-home-mobile.jpg") no-repeat center center;

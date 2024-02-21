@@ -1,0 +1,13 @@
+.link-destination{
+    color: #85888E;
+}
+
+.link-destination:hover{
+    border-bottom: 2px solid #85888E;
+    color: #85888E;
+}
+
+.is-active{
+    color: white;
+    border-bottom: 2px solid white;
+}
