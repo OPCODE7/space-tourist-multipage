@@ -1,0 +1,30 @@
+.bg-crew{
+    background: url("../assets/crew/background-crew-mobile.jpg") no-repeat center center;
+}
+.bg-crew-md{
+    background: url("../assets/crew/background-crew-tablet.jpg") no-repeat center center;
+}
+.bg-crew-lg{
+    background: url("../assets/crew/background-crew-desktop.jpg") no-repeat center center;
+}
+
+.separator-line{
+    height: 1px;
+}
+
+.link-crew{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: block;
+    background-color: #85888E;
+}
+
+
+.link-crew:hover{
+    background-color: #b8babd;
+}
+
+.is-active{
+    background-color:  white;
+}

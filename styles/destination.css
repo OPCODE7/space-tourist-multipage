@@ -11,3 +11,13 @@
     color: white;
     border-bottom: 2px solid white;
 }
+
+.bg-destination{
+    background: url("../assets/destination/background-destination-mobile.jpg") no-repeat center center;
+}
+.bg-destination-md{
+    background: url("../assets/destination/background-destination-tablet.jpg") no-repeat center center;
+}
+.bg-destination-lg{
+    background: url("../assets/destination/background-destination-desktop.jpg") no-repeat center center;
+}
