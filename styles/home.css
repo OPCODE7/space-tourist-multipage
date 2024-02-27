@@ -35,7 +35,7 @@
 .btn-explore:hover {
     box-shadow: #0b0d17d3 0px 0px 0px 30px;
 }
-
+ 
 .heading-5,
 .sub-heading-2 {
     font-family: 'Barlow Condensed', sans-serif;
@@ -95,10 +95,29 @@
     background: url("../assets/home/background-home-desktop.jpg") no-repeat center center /cover;
 }
 
-
+.separator-line{
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: -20rem;
+    transform: translateY(-50%);
+    width: 55%;
+}
 
 #offcanvasNavbar {
     background-color: rgba(32, 32, 32, 0.3);
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+
+@media(min-width: 1024px){
+    #title-page{
+        font-size: 120px;
+    }
+
+    .separator-line{
+        left: -29rem;
+        width: 80%;
+    }
 }

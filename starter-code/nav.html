@@ -1,37 +1,40 @@
 <nav class="navbar navbar-expand-md flex-grow-0">
-    <div class="container-fluid">
-        <a href="../index.html">
-            <img src="../assets/shared/logo.svg" class="img-fluid w-75 h-75" alt="logo">
+    <div class="container-fluid row p-0 m-0 ">
+        <a href="../index.html" class="col-2">
+            <img src="../assets/shared/logo.svg" class="img-fluid" alt="logo">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        <button class="navbar-toggler col-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <i class="fa-solid fa-bars text-white fs-1"></i>
         </button>
 
-        <div class="offcanvas offcanvas-end w-75 px-2 " tabindex="-1" id="offcanvasNavbar"
+
+        <div class="offcanvas offcanvas-end px-2 flex-grow-0 h-100 w-75" tabindex="-1" id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel">
+            <div class="border-bottom border-secondary separator-line col-5 z-1 d-none d-lg-block"></div>
             <div class="offcanvas-header d-flex justify-content-end d-md-none">
                 <i class="fa-solid fa-xmark text-light fs-1 btn" data-bs-dismiss="offcanvas" aria-label="Close"></i>
             </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-start justify-content-md-end flex-grow-1 p-2 h-50">
+            <div class="offcanvas-body py-3">
+                <ul class="navbar-nav justify-content-start justify-content-md-center flex-grow-0 p-2 ps-lg-4 h-50">
                     <li class="nav-item mb-2 mb-md-0 me-md-3 p-1">
                         <a class="nav-link text-light text-uppercase nav-text p-0" aria-current="page"
-                            href="../index.html"><span class="fw-bold nav-text d-md-none d-lg-block">00</span> Home</a>
+                            href="../index.html"><span class="fw-bold nav-text d-md-none d-lg-inline">00</span> Home</a>
                     </li>
                     <li class="nav-item mb-2 mb-md-0 me-md-3 p-1">
-                        <a class="nav-link text-light text-uppercase nav-text p-0" href="../starter-code/destination.html"><span
-                                class="fw-bold d-md-none d-lg-block">01</span>
+                        <a class="nav-link text-light text-uppercase nav-text p-0"
+                            href="../starter-code/destination.html"><span
+                                class="fw-bold d-md-none d-lg-inline">01</span>
                             Destination</a>
                     </li>
                     <li class="nav-item mb-2 mb-md-0 me-md-3 p-1">
-                        <a class="nav-link text-light text-uppercase nav-text p-0" href="../starter-code/crew.html"><span
-                                class="fw-bold d-md-none d-lg-block">02</span>
+                        <a class="nav-link text-light text-uppercase nav-text p-0"
+                            href="../starter-code/crew.html"><span class="fw-bold d-md-none d-lg-inline">02</span>
                             Crew</a>
                     </li>
                     <li class="nav-item mb-2 mb-md-0 me-md-3 p-1">
-                        <a class="nav-link text-light text-uppercase nav-text p-0" href="../starter-code/technology.html"><span
-                                class="fw-bold d-md-none d-lg-block">03</span>
+                        <a class="nav-link text-light text-uppercase nav-text p-0"
+                            href="../starter-code/technology.html"><span class="fw-bold d-md-none d-lg-inline">03</span>
                             Technology</a>
                     </li>
                 </ul>
@@ -39,4 +42,3 @@
         </div>
     </div>
 </nav>
-
