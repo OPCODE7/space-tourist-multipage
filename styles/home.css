@@ -17,7 +17,10 @@
 
 
 .bg-home {
-    background: url("../assets/home/background-home-mobile.jpg") no-repeat center center;
+    background: url("../assets/home/background-home-mobile.jpg") no-repeat center center / cover;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 
@@ -85,11 +88,11 @@
 }
 
 .bg-home-md {
-    background: url("../assets/home/background-home-tablet.jpg") no-repeat center center;
+    background: url("../assets/home/background-home-tablet.jpg") no-repeat center center/ cover;
 }
 
 .bg-home-lg {
-    background: url("../assets/home/background-home-desktop.jpg") no-repeat center center;
+    background: url("../assets/home/background-home-desktop.jpg") no-repeat center center /cover;
 }
 
 
