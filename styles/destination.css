@@ -13,11 +13,11 @@
 }
 
 .bg-destination{
-    background: url("../assets/destination/background-destination-mobile.jpg") no-repeat center center;
+    background: url("../assets/destination/background-destination-mobile.jpg") no-repeat center center /cover;
 }
 .bg-destination-md{
-    background: url("../assets/destination/background-destination-tablet.jpg") no-repeat center center;
+    background: url("../assets/destination/background-destination-tablet.jpg") no-repeat center center /cover;
 }
 .bg-destination-lg{
-    background: url("../assets/destination/background-destination-desktop.jpg") no-repeat center center;
+    background: url("../assets/destination/background-destination-desktop.jpg") no-repeat center center /cover;
 }
