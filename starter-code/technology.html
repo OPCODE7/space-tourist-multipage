@@ -18,23 +18,25 @@
 </head>
 
 <body class="vh-100">
-    <div class="container-fluid bg-technology w-100 h-100 p-0">
+    <div class="container-fluid bg-technology w-100 h-100 p-0 d-flex flex-column">
         <div data-include="nav.html"></div>
 
-        <main class="row w-100 text-center m-0">
-            <div class="col-12 col-lh-6 mt-2 d-flex flex-column align-items-center px-0 header-image-container">
-                <h1 class="text-light heading-5 align-self-md-start fs-4 text-uppercase"><span class="text-secondary fw-bold">03</span>
-                    Space Launch 101</h1>
-                <img src="" alt="" class="img-fluid w-100 h-100 mt-3" id="technology-image">
+        <main class="row w-100 text-center m-0 d-flex flex-column justify-content-evenly justify-content-md-around justify-content-lg-start flex-grow-1 flex-lg-row">
+            <h1 class="text-light heading-5 text-center text-md-start fs-4 text-uppercase flex-grow-0 col-12 ps-lg-4"><span
+                    class="text-secondary fw-bold">03</span>
+                Space Launch 101</h1>
+            <div class="col-12 col-lg-4 mt-2 d-flex flex-column align-items-center px-0 header-image-container order-lg-1">
+                <img src="" alt="" class="img-fluid w-100 h-100 mt-2 mt-lg-0" id="technology-image">
             </div>
-            <div class="col-12 col-lg-6 px-0 mt-4">
-                <ul class="d-flex justify-content-center p-0 list-unstyled">
+            <div class="col-12 col-lg-5 d-flex flex-column flex-lg-row px-lg-5">
+                <ul class="d-flex justify-content-center flex-lg-column justify-content-lg-start p-0 list-unstyled mb-2 mx-lg-4">
                     <li class="mx-2">
-                        <a href="#" class="text-decoration-none pb-2 fw-light nav-text is-active link-technology fw-light"
+                        <a href="#"
+                            class="text-decoration-none pb-2 fw-light nav-text is-active link-technology fw-light"
                             id="tech-1">1</a>
                     </li>
                     <li class="mx-2">
-                        <a href="#" class="text-decoration-none pb-2 fw-light nav-text link-technology fw-light"
+                        <a href="#" class="text-decoration-none pb-2 fw-light nav-text link-technology fw-light my-lg-5"
                             id="tech-2">2</a>
                     </li>
                     <li class="mx-2">
@@ -42,9 +44,11 @@
                             id="tech-3">3</a>
                     </li>
                 </ul>
-                <h5 class="heading-5 text-white-50 text-center text-uppercase">the terminology...</h5>
-                <h1 class="heading-4 text-white text-center text-uppercase w-100 fw-bold" id="technology-name"></h1>
-                <p class="fw-light text-white-50 text-center mb-0" id="tech-description"></p>
+                <div>
+                    <h5 class="heading-5 text-white-50 text-center text-lg-start text-uppercase">the terminology...</h5>
+                    <h1 class="heading-4 text-white text-center text-lg-start text-uppercase w-100 fw-bold" id="technology-name"></h1>
+                    <p class="fw-light text-white-50 text-center text-lg-start mb-0 px-1 px-md-5 pe-lg-5 ps-lg-0" id="tech-description"></p>
+                </div>
             </div>
         </main>
     </div>

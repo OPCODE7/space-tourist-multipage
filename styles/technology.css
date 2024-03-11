@@ -7,3 +7,39 @@
 .bg-technology-lg{
     background: url("../assets/technology/background-technology-desktop.jpg") no-repeat center center /cover;
 }
+
+
+.link-technology{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: transparent;
+    color: white;
+    border: 1px solid #b8babd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.link-technology:hover{
+    background-color: transparent;
+    border-color: white;
+    color: white;
+}
+
+.is-active{
+    background-color:  white;
+    color: black;
+}
+
+.header-image-container{
+    height: 40vh;
+}
+
+
+@media(min-width: 1024px){
+    .header-image-container{
+        height: 60vh;
+    }
+}
