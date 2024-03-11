@@ -1,0 +1,9 @@
+.bg-technology{
+    background: url("../assets/technology/background-technology-mobile.jpg") no-repeat center center /cover;
+}
+.bg-technology-md{
+    background: url("../assets/technology/background-technology-tablet.jpg") no-repeat center center /cover;
+}
+.bg-technology-lg{
+    background: url("../assets/technology/background-technology-desktop.jpg") no-repeat center center /cover;
+}
