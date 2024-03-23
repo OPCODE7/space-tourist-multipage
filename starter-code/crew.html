@@ -27,13 +27,18 @@
                         class="text-secondary fw-bold">02</span>
                     Meet Your Crew</h1>
             </div>
-            <div class="col-12 mt-3 mt-lg-0 px-0 flex-grow-1 d-flex flex-column flex-lg-row justify-content-evenly justify-content-md-between row position-relative align-items-center mx-0 px-lg-5">
-                <img src="" alt="" class="order-md-2 px-0 ms-5 ms-lg-0 col-5 col-md-3 flex-grow-1 flex-lg-grow-0 align-self-lg-end" id="crew-image">
+            <div
+                class="col-12 mt-3 mt-lg-0 px-0 flex-grow-1 d-flex flex-column flex-lg-row justify-content-evenly justify-content-md-between row position-relative align-items-center mx-0 px-lg-5">
+                <img src="" alt=""
+                    class="order-md-2 px-0 ms-5 ms-lg-0 col-5 col-md-3 flex-grow-1 flex-lg-grow-0 align-self-lg-end"
+                    id="crew-image">
 
                 <div class="border-bottom border-secondary separator-line-crew opacity-25 d-md-none col-11"></div>
 
-                <div class="row col-12 col-lg-5 px-0 mx-0 flex-grow-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start ps-lg-5">
-                    <ul class="d-flex justify-content-center justify-content-lg-start p-0 list-unstyled my-1 order-md-1 m-0 mt-lg-5">
+                <div
+                    class="row col-12 col-lg-5 px-0 mx-0 flex-grow-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start ps-lg-5">
+                    <ul
+                        class="d-flex justify-content-center justify-content-lg-start p-0 list-unstyled my-1 order-md-1 m-0 mt-lg-5">
                         <li class="mx-2">
                             <a href="#" class="text-decoration-none pb-2 fw-light nav-text is-active link-crew"
                                 id="crew-1"></a>
@@ -48,9 +53,12 @@
                             <a href="#" class="text-decoration-none pb-2 fw-light nav-text link-crew" id="crew-4"></a>
                         </li>
                     </ul>
-                    <h4 class="heading-5 text-white-50 text-center text-lg-start text-uppercase col-12 col-lg-6 px-lg-0" id="crew-rol"></h4>
-                    <h1 class="heading-4 text-white text-center text-lg-start text-uppercase col-12  col-lg-6 fw-bold px-lg-0 pb-lg-3" id="crew-name"></h1>
-                    <p class="fw-light text-white-50 text-center text-lg-start mb-0 px-md-2 px-lg-0 col-12 col-md-7" id="crew-bio">
+                    <h4 class="heading-5 text-white-50 text-center text-lg-start text-uppercase col-12 col-lg-6 px-lg-0"
+                        id="crew-rol"></h4>
+                    <h1 class="heading-4 text-white text-center text-lg-start text-uppercase col-12  col-lg-6 fw-bold px-lg-0 pb-lg-3"
+                        id="crew-name"></h1>
+                    <p class="fw-light text-white-50 text-center text-lg-start mb-0 px-md-2 px-lg-0 col-12 col-md-7"
+                        id="crew-bio">
                     </p>
                 </div>
             </div>
@@ -70,7 +78,8 @@
             $crewRol = d.getElementById("crew-rol"),
             $crewBio = d.getElementById("crew-bio"),
             $imgCrew = d.getElementById("crew-image"),
-            $linksCrews = d.querySelectorAll(".link-crew");
+            $linksCrews = d.querySelectorAll(".link-crew"),
+            $linksNavBar = d.querySelectorAll(".nav-link");
 
 
         const setData = (index) => {
@@ -83,34 +92,44 @@
             });
         }
 
-        const navigationEffects = (targetActive) => {
-            targetActive.classList.add("is-active");
-            $linksCrews.forEach(link => {
-                if (link.classList.contains("is-active") && link !== targetActive) link.classList.remove("is-active");
+        const navigationEffects = (targetActive,effect,allLinks) => {
+            targetActive.classList.add(effect);
+            allLinks.forEach(link => {
+                if (link.classList.contains(effect) && link !== targetActive) link.classList.remove("is-active");
             });
         }
 
         d.addEventListener("DOMContentLoaded", e => {
             setBackgroundResponsive($background, "bg-crew", "bg-crew-md", "bg-crew-lg");
             setData(0);
+            $linksNavBar.forEach(link => {
+                setTimeout(() => {
+                    
+                    console.log(link)
+                }, 2000);
+                if (link.href === localStorage.getItem("linkActive")) navigationEffects(link,"nav-link-is-active",$linksNavBar);
+            });
         });
 
 
         d.addEventListener("click", e => {
+            if (e.target.matches(".nav-link")) {
+                localStorage.setItem("linkActive", e.target.href);
+            }
             if (e.target.matches("#crew-1")) {
                 setData(0);
-                navigationEffects(e.target);
+                navigationEffects(e.target,"is-active",$linksCrews);
             }
             if (e.target.matches("#crew-2")) {
-                navigationEffects(e.target);
+                navigationEffects(e.target,"is-active",$linksCrews);
                 setData(1);
             }
             if (e.target.matches("#crew-3")) {
-                navigationEffects(e.target);
+                navigationEffects(e.target,"is-active",$linksCrews);
                 setData(2);
             }
             if (e.target.matches("#crew-4")) {
-                navigationEffects(e.target);
+                navigationEffects(e.target,"is-active",$linksCrews);
                 setData(3);
             }
         });

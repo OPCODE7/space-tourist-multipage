@@ -19,11 +19,13 @@
   <div class="container-fluid bg-home w-100 h-100 p-0 d-flex flex-column">
     <div data-include="starter-code/nav.html"></div>
 
-    <main class="container-fluid row mt-5 d-flex flex-column flex-lg-row justify-content-around  align-items-center flex-grow-1">
+    <main
+      class="container-fluid row mt-5 d-flex flex-column flex-lg-row justify-content-around  align-items-center flex-grow-1">
       <div class="col-12 col-lg-5 d-flex flex-column align-items-center align-items-lg-start px-md-5">
         <h3 class="text-light text-uppercase fw-light heading-5 p-0">So, you want to travel to</h3>
         <h1 class="text-light fw-light text-uppercase my-2 heading-2" id="title-page">Space</h1>
-        <p class="text-light text-center text-lg-start fw-light fs-6 m-0">Let’s face it; if you want to go to space, you might as well
+        <p class="text-light text-center text-lg-start fw-light fs-6 m-0">Let’s face it; if you want to go to space, you
+          might as well
           genuinely go to
           outer space and not hover kind of on the edge of it. Well sit back, and relax
           because we’ll give you a truly out of this world experience!
@@ -46,12 +48,25 @@
     const $background = d.querySelector(".bg-home");
 
     window.addEventListener("resize", e => {
-      setBackgroundResponsive($background,"bg-home","bg-home-md","bg-home-lg");
+      setBackgroundResponsive($background, "bg-home", "bg-home-md", "bg-home-lg");
     });
 
+    const navigationEffects = (targetActive) => {
+      targetActive.classList.add("is-active");
+      $linksTechnology.forEach(link => {
+        if (link.classList.contains("is-active") && link !== targetActive) link.classList.remove("is-active");
+      });
+    }
 
     d.addEventListener("DOMContentLoaded", e => {
-      setBackgroundResponsive($background,"bg-home","bg-home-md","bg-home-lg");
+      setBackgroundResponsive($background, "bg-home", "bg-home-md", "bg-home-lg");
+
+    });
+
+    d.addEventListener("click", e => {
+      if (e.target.matches(".nav-link")) {
+        localStorage.setItem("linkActive", e.target.href);
+      }
     });
 
 

@@ -47,9 +47,11 @@
                     </li>
                 </ul>
                 <h1 class="heading-3 text-white text-center mt-4 text-uppercase" id="destination-name"></h1>
-                <p class="fw-light text-white-50 text-center text-lg-start mb-4 px-md-5 px-lg-0" id="destination-info"></p>
+                <p class="fw-light text-white-50 text-center text-lg-start mb-4 px-md-5 px-lg-0" id="destination-info">
+                </p>
                 <div class="border border-bottom-0 border-secondary mb-4 w-100"></div>
-                <div class="text-center pt-2 pb-4 text-white-50 h-auto d-flex flex-column flex-md-row justify-content-evenly align-items-center w-100">
+                <div
+                    class="text-center pt-2 pb-4 text-white-50 h-auto d-flex flex-column flex-md-row justify-content-evenly align-items-center w-100">
                     <div>
                         <h4 class="sub-heading-2">AVG. DISTANCE</h4>
                         <span id="avg-distance" class="sub-heading-1 text-white"></span>
@@ -77,7 +79,8 @@
             $avgDistance = d.getElementById("avg-distance"),
             $travelTime = d.getElementById("travel-time"),
             $imgDestination = d.getElementById("destination-image"),
-            $linksDestinations = d.querySelectorAll(".link-destination");
+            $linksDestinations = d.querySelectorAll(".link-destination"),
+            $linksNavBar = d.querySelectorAll(".nav-link");
 
 
         const setData = (index) => {
@@ -101,6 +104,9 @@
         d.addEventListener("DOMContentLoaded", e => {
             setBackgroundResponsive($background, "bg-destination", "bg-destination-md", "bg-destination-lg");
             setData(0);
+            $linksNavBar.forEach(link => {
+                if (link.href === localStorage.getItem("linkActive")) navigationEffects(link);
+            });
         });
 
 
@@ -120,6 +126,9 @@
             if (e.target.matches("#titan-destination")) {
                 navigationEffects(e.target);
                 setData(3);
+            }
+            if (e.target.matches(".nav-link")) {
+                localStorage.setItem("linkActive", e.target.href);
             }
         });
 

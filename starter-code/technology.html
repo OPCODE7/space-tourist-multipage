@@ -21,15 +21,19 @@
     <div class="container-fluid bg-technology w-100 h-100 p-0 d-flex flex-column">
         <div data-include="nav.html"></div>
 
-        <main class="row w-100 text-center m-0 d-flex flex-column justify-content-evenly justify-content-md-around justify-content-lg-start flex-grow-1 flex-lg-row">
-            <h1 class="text-light heading-5 text-center text-md-start fs-4 text-uppercase flex-grow-0 col-12 ps-lg-4"><span
-                    class="text-secondary fw-bold">03</span>
+        <main
+            class="row w-100 text-center m-0 d-flex flex-column justify-content-evenly justify-content-md-around justify-content-lg-between flex-grow-1 flex-lg-row">
+            <h1
+                class="text-light heading-5 mx-auto mx-md-0 text-md-start fs-4 text-uppercase flex-grow-0 col-7 ps-lg-5 ms-lg-5">
+                <span class="text-secondary fw-bold">03</span>
                 Space Launch 101</h1>
-            <div class="col-12 col-lg-4 mt-2 d-flex flex-column align-items-center px-0 header-image-container order-lg-1">
+            <div
+                class="col-12 col-lg-6 mt-2 mt-lg-0 d-flex flex-column align-items-center px-0 header-image-container order-lg-1">
                 <img src="" alt="" class="img-fluid w-100 h-100 mt-2 mt-lg-0" id="technology-image">
             </div>
-            <div class="col-12 col-lg-5 d-flex flex-column flex-lg-row px-lg-5">
-                <ul class="d-flex justify-content-center flex-lg-column justify-content-lg-start p-0 list-unstyled mb-2 mx-lg-4">
+            <div class="col-12 col-lg-6 d-flex flex-column flex-lg-row px-lg-5">
+                <ul
+                    class="d-flex justify-content-center flex-lg-column justify-content-lg-start p-0 list-unstyled mb-2 mx-lg-4 mt-lg-5">
                     <li class="mx-2">
                         <a href="#"
                             class="text-decoration-none pb-2 fw-light nav-text is-active link-technology fw-light"
@@ -44,10 +48,12 @@
                             id="tech-3">3</a>
                     </li>
                 </ul>
-                <div>
+                <div class="mt-lg-5">
                     <h5 class="heading-5 text-white-50 text-center text-lg-start text-uppercase">the terminology...</h5>
-                    <h1 class="heading-4 text-white text-center text-lg-start text-uppercase w-100 fw-bold" id="technology-name"></h1>
-                    <p class="fw-light text-white-50 text-center text-lg-start mb-0 px-1 px-md-5 pe-lg-5 ps-lg-0" id="tech-description"></p>
+                    <h1 class="heading-4 text-white text-center text-lg-start text-uppercase w-100 fw-bold"
+                        id="technology-name"></h1>
+                    <p class="fw-light text-white-50 text-center text-lg-start mb-0 px-1 px-md-5 px-lg-0"
+                        id="tech-description"></p>
                 </div>
             </div>
         </main>
@@ -65,7 +71,8 @@
             $technologyName = d.getElementById("technology-name"),
             $technologyDescription = d.getElementById("tech-description"),
             $imgTechnology = d.getElementById("technology-image"),
-            $linksTechnology = d.querySelectorAll(".link-technology");
+            $linksTechnology = d.querySelectorAll(".link-technology"),
+            $linksNavBar = d.querySelectorAll(".nav-link");
 
 
         const setData = (index) => {
@@ -87,6 +94,9 @@
         d.addEventListener("DOMContentLoaded", e => {
             setBackgroundResponsive($background, "bg-technology", "bg-technology-md", "bg-technology-lg");
             setData(0);
+            $linksNavBar.forEach(link => {
+                if (link.href === localStorage.getItem("linkActive")) navigationEffects(link);
+            });
         });
 
 
@@ -102,6 +112,9 @@
             if (e.target.matches("#tech-3")) {
                 navigationEffects(e.target);
                 setData(2);
+            }
+            if (e.target.matches(".nav-link")) {
+                localStorage.setItem("linkActive", e.target.href);
             }
         });
 
