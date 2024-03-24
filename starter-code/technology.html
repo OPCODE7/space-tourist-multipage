@@ -74,9 +74,7 @@
             $technologyName = d.getElementById("technology-name"),
             $technologyDescription = d.getElementById("tech-description"),
             $imgTechnology = d.getElementById("technology-image"),
-            $linksTechnology = d.querySelectorAll(".link-technology"),
-            $linksNavBar = d.querySelectorAll(".nav-link");
-
+            $linksTechnology = d.querySelectorAll(".link-technology");
 
         const setData = (index) => {
             getData().then(data => {
@@ -113,9 +111,6 @@
                 if (e.target.matches("#tech-3")) {
                     navigationEffects(e.target, $linksTechnology, "is-active");
                     setData(2);
-                }
-                if (e.target.matches(".nav-link")) {
-                    localStorage.setItem("linkActive", e.target.href, "is-active");
                 }
             });
 
