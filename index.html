@@ -44,6 +44,7 @@
 
   <script type="module">
     import setBackgroundResponsive from "/js/background_responsive.js";
+    import navigationEffects from "/js/active_link_effect.js";
     const d = document;
     const $background = d.querySelector(".bg-home");
 
@@ -51,24 +52,18 @@
       setBackgroundResponsive($background, "bg-home", "bg-home-md", "bg-home-lg");
     });
 
-    const navigationEffects = (targetActive) => {
-      targetActive.classList.add("is-active");
-      $linksTechnology.forEach(link => {
-        if (link.classList.contains("is-active") && link !== targetActive) link.classList.remove("is-active");
-      });
-    }
 
     d.addEventListener("DOMContentLoaded", e => {
       setBackgroundResponsive($background, "bg-home", "bg-home-md", "bg-home-lg");
+      let url = document.URL;
+      setTimeout(() => {
+        let $linksNav = d.querySelectorAll(".nav-link");
+        $linksNav.forEach(link => {
+          if (link.href === url) navigationEffects(link, $linksNav, "nav-link-is-active");
+        });
+      }, 200);
 
     });
-
-    d.addEventListener("click", e => {
-      if (e.target.matches(".nav-link")) {
-        localStorage.setItem("linkActive", e.target.href);
-      }
-    });
-
 
   </script>
   <script src="js/include_layout.js"></script>

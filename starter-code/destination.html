@@ -72,6 +72,8 @@
     <script type="module">
         import getData from "../js/get_data.js";
         import setBackgroundResponsive from "../js/background_responsive.js";
+        import navigationEffects from "/js/active_link_effect.js";
+
         const d = document,
             $background = d.querySelector(".bg-destination"),
             $destinationName = d.getElementById("destination-name"),
@@ -94,41 +96,38 @@
             });
         }
 
-        const navigationEffects = (targetActive) => {
-            targetActive.classList.add("is-active");
-            $linksDestinations.forEach(link => {
-                if (link.classList.contains("is-active") && link !== targetActive) link.classList.remove("is-active");
-            });
-        }
+        
 
         d.addEventListener("DOMContentLoaded", e => {
             setBackgroundResponsive($background, "bg-destination", "bg-destination-md", "bg-destination-lg");
             setData(0);
-            $linksNavBar.forEach(link => {
-                if (link.href === localStorage.getItem("linkActive")) navigationEffects(link);
-            });
+            let url= document.URL;
+            setTimeout(() => {
+                let $linksNav= d.querySelectorAll(".nav-link");
+               $linksNav.forEach(link => {
+                    if(link.href===url) navigationEffects(link,$linksNav,"nav-link-is-active");
+                });
+            }, 200);
+           
         });
 
 
         d.addEventListener("click", e => {
             if (e.target.matches("#moon-destination")) {
                 setData(0);
-                navigationEffects(e.target);
+                navigationEffects(e.target,$linksDestinations,"is-active");
             }
             if (e.target.matches("#mars-destination")) {
-                navigationEffects(e.target);
+                navigationEffects(e.target,$linksDestinations,"is-active");
                 setData(1);
             }
             if (e.target.matches("#europa-destination")) {
-                navigationEffects(e.target);
+                navigationEffects(e.target,$linksDestinations,"is-active");
                 setData(2);
             }
             if (e.target.matches("#titan-destination")) {
-                navigationEffects(e.target);
+                navigationEffects(e.target,$linksDestinations,"is-active");
                 setData(3);
-            }
-            if (e.target.matches(".nav-link")) {
-                localStorage.setItem("linkActive", e.target.href);
             }
         });
 

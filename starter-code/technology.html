@@ -17,8 +17,8 @@
     <title>Space tourism website | TECHNOLOGY</title>
 </head>
 
-<body class="vh-100">
-    <div class="container-fluid bg-technology w-100 h-100 p-0 d-flex flex-column">
+<body>
+    <div class="container-fluid bg-technology w-100 min-vh-100 p-0 d-flex flex-column">
         <div data-include="nav.html"></div>
 
         <main
@@ -26,14 +26,15 @@
             <h1
                 class="text-light heading-5 mx-auto mx-md-0 text-md-start fs-4 text-uppercase flex-grow-0 col-7 ps-lg-5 ms-lg-5">
                 <span class="text-secondary fw-bold">03</span>
-                Space Launch 101</h1>
+                Space Launch 101
+            </h1>
             <div
                 class="col-12 col-lg-6 mt-2 mt-lg-0 d-flex flex-column align-items-center px-0 header-image-container order-lg-1">
                 <img src="" alt="" class="img-fluid w-100 h-100 mt-2 mt-lg-0" id="technology-image">
             </div>
             <div class="col-12 col-lg-6 d-flex flex-column flex-lg-row px-lg-5">
                 <ul
-                    class="d-flex justify-content-center flex-lg-column justify-content-lg-start p-0 list-unstyled mb-2 mx-lg-4 mt-lg-5">
+                    class="d-flex justify-content-center flex-lg-column justify-content-lg-start p-0 list-unstyled mb-2 mx-lg-4 mt-4 mt-lg-5">
                     <li class="mx-2">
                         <a href="#"
                             class="text-decoration-none pb-2 fw-light nav-text is-active link-technology fw-light"
@@ -52,7 +53,7 @@
                     <h5 class="heading-5 text-white-50 text-center text-lg-start text-uppercase">the terminology...</h5>
                     <h1 class="heading-4 text-white text-center text-lg-start text-uppercase w-100 fw-bold"
                         id="technology-name"></h1>
-                    <p class="fw-light text-white-50 text-center text-lg-start mb-0 px-1 px-md-5 px-lg-0"
+                    <p class="fw-light text-white-50 text-center text-lg-start mb-0 px-1 px-md-5 px-lg-0 py-3"
                         id="tech-description"></p>
                 </div>
             </div>
@@ -66,6 +67,8 @@
     <script type="module">
         import getData from "../js/get_data.js";
         import setBackgroundResponsive from "../js/background_responsive.js";
+        import navigationEffects from "../js/active_link_effect.js";
+
         const d = document,
             $background = d.querySelector(".bg-technology"),
             $technologyName = d.getElementById("technology-name"),
@@ -84,43 +87,41 @@
             });
         }
 
-        const navigationEffects = (targetActive) => {
-            targetActive.classList.add("is-active");
-            $linksTechnology.forEach(link => {
-                if (link.classList.contains("is-active") && link !== targetActive) link.classList.remove("is-active");
-            });
-        }
 
         d.addEventListener("DOMContentLoaded", e => {
             setBackgroundResponsive($background, "bg-technology", "bg-technology-md", "bg-technology-lg");
             setData(0);
-            $linksNavBar.forEach(link => {
-                if (link.href === localStorage.getItem("linkActive")) navigationEffects(link);
+            setTimeout(() => {
+                let url = document.URL;
+                setTimeout(() => {
+                    let $linksNav = d.querySelectorAll(".nav-link");
+                    $linksNav.forEach(link => {
+                        if (link.href === url) navigationEffects(link, $linksNav, "nav-link-is-active");
+                    });
+                }, 200);
             });
+
+            d.addEventListener("click", e => {
+                if (e.target.matches("#tech-1")) {
+                    setData(0);
+                    navigationEffects(e.target, $linksTechnology, "is-active");
+                }
+                if (e.target.matches("#tech-2")) {
+                    navigationEffects(e.target, $linksTechnology, "is-active");
+                    setData(1);
+                }
+                if (e.target.matches("#tech-3")) {
+                    navigationEffects(e.target, $linksTechnology, "is-active");
+                    setData(2);
+                }
+                if (e.target.matches(".nav-link")) {
+                    localStorage.setItem("linkActive", e.target.href, "is-active");
+                }
+            });
+
         });
 
-
-        d.addEventListener("click", e => {
-            if (e.target.matches("#tech-1")) {
-                setData(0);
-                navigationEffects(e.target);
-            }
-            if (e.target.matches("#tech-2")) {
-                navigationEffects(e.target);
-                setData(1);
-            }
-            if (e.target.matches("#tech-3")) {
-                navigationEffects(e.target);
-                setData(2);
-            }
-            if (e.target.matches(".nav-link")) {
-                localStorage.setItem("linkActive", e.target.href);
-            }
-        });
-
-        window.addEventListener("resize", e => setBackgroundResponsive($background, "bg-technology", "bg-technology-md", "bg-technology-lg"));
-
-
+            window.addEventListener("resize", e => setBackgroundResponsive($background, "bg-technology", "bg-technology-md", "bg-technology-lg"));
 
     </script>
 </body>
