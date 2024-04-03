@@ -1,189 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../styles/home.css">
-    <link rel="stylesheet" href="../styles/destination.css">
-
-    <title>Frontend Mentor | Space tourism website</title>
-</head>
-
-<body class="min-vh-100">
-    <div class="container-fluid bg-destination w-100 min-vh-100 p-0 d-flex flex-column">
-        <nav class="navbar navbar-expand-md flex-grow-0">
-            <div class="container-fluid row p-0 m-0 ">
-                <a href="../index.html" class="col-2">
-                    <img src="../assets/shared/logo.svg" class="img-fluid" alt="logo">
-                </a>
-                <button class="navbar-toggler col-2" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars text-white fs-1"></i>
-                </button>
-
-
-                <div class="offcanvas offcanvas-end px-2 flex-grow-0 h-100 w-75" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="border-bottom border-secondary separator-line col-5 z-1 d-none d-lg-block"></div>
-                    <div class="offcanvas-header d-flex justify-content-end d-md-none">
-                        <i class="fa-solid fa-xmark text-light fs-1 btn" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></i>
-                    </div>
-                    <div class="offcanvas-body py-3">
-                        <ul
-                            class="navbar-nav justify-content-start justify-content-md-center flex-grow-0 p-2 ps-lg-4 h-50">
-                            <li class="nav-item mb-2 mb-md-0 me-md-3 p-1">
-                                <a class="nav-link text-light text-uppercase nav-text p-0 nav-link-is-active"
-                                    aria-current="page" href="../index.html"><span
-                                        class="fw-bold nav-text d-md-none d-lg-inline">00</span> Home</a>
-                            </li>
-                            <li class="nav-item mb-2 mb-md-0 me-md-3 p-1">
-                                <a class="nav-link text-light text-uppercase nav-text p-0"
-                                    href="../starter-code/destination.html"><span
-                                        class="fw-bold d-md-none d-lg-inline">01</span>
-                                    Destination</a>
-                            </li>
-                            <li class="nav-item mb-2 mb-md-0 me-md-3 p-1">
-                                <a class="nav-link text-light text-uppercase nav-text p-0"
-                                    href="../starter-code/crew.html"><span
-                                        class="fw-bold d-md-none d-lg-inline">02</span>
-                                    Crew</a>
-                            </li>
-                            <li class="nav-item mb-2 mb-md-0 me-md-3 p-1">
-                                <a class="nav-link text-light text-uppercase nav-text p-0"
-                                    href="../starter-code/technology.html"><span
-                                        class="fw-bold d-md-none d-lg-inline">03</span>
-                                    Technology</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <main class="row px-3 w-100 flex-grow-1 text-center m-0">
-            <div class="col-12 col-lg-6 my-2 d-flex flex-column align-items-center row justify-content-center">
-                <h1 class="text-light heading-5 align-self-md-start fs-4"><span class="text-secondary fw-bold">01</span>
-                    Pick your Destination</h1>
-                <img src="" alt="" class="img-fluid col-6 col-md-7 col-lg-8 mt-4" id="destination-image">
-            </div>
-            <div class="col-12 col-lg-6 px-md-5 d-flex flex-column justify-content-center align-items-lg-start">
-                <ul class="d-flex justify-content-center p-0">
-                    <li>
-                        <a href="#" class="text-decoration-none pb-2 fw-light nav-text is-active link-destination"
-                            id="moon-destination">MOON</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-decoration-none pb-2 fw-light nav-text link-destination mx-3"
-                            id="mars-destination">MARS</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-decoration-none pb-2 fw-light nav-text link-destination mx-3"
-                            id="europa-destination">EUROPA</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-decoration-none pb-2 fw-light nav-text link-destination"
-                            id="titan-destination">TITAN</a>
-                    </li>
-                </ul>
-                <h1 class="heading-3 text-white text-center mt-4 text-uppercase" id="destination-name"></h1>
-                <p class="fw-light text-white-50 text-center text-lg-start mb-4 px-md-5 px-lg-0" id="destination-info">
-                </p>
-                <div class="border border-bottom-0 border-secondary mb-4 w-100"></div>
-                <div
-                    class="text-center pt-2 pb-4 text-white-50 h-auto d-flex flex-column flex-md-row justify-content-evenly align-items-center w-100">
-                    <div>
-                        <h4 class="sub-heading-2">AVG. DISTANCE</h4>
-                        <span id="avg-distance" class="sub-heading-1 text-white"></span>
-                    </div>
-                    <div>
-                        <h4 class="sub-heading-2 mt-4 mt-md-0">EST. TRAVEL TIME</h4>
-                        <span id="travel-time" class="sub-heading-1 text-white"></span>
-                    </div>
-                </div>
-            </div>
-        </main>
+<div class="row px-3 w-100 flex-grow-1 text-center m-0">
+    <div class="col-12 col-lg-6 my-2 d-flex flex-column align-items-center row justify-content-center">
+        <h1 class="text-light heading-5 align-self-md-start fs-4"><span class="text-secondary fw-bold">01</span>
+            Pick your Destination</h1>
+        <img src="" alt="" class="img-fluid col-6 col-md-7 col-lg-8 mt-4" id="destination-image">
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
-    <script src="../js/include_layout.js"></script>
-    <script type="module">
-        import getData from "../js/get_data.js";
-        import setBackgroundResponsive from "../js/background_responsive.js";
-        import navigationEffects from "../js/active_link_effect.js";
-
-        const d = document,
-            $background = d.querySelector(".bg-destination"),
-            $destinationName = d.getElementById("destination-name"),
-            $destinationInfo = d.getElementById("destination-info"),
-            $avgDistance = d.getElementById("avg-distance"),
-            $travelTime = d.getElementById("travel-time"),
-            $imgDestination = d.getElementById("destination-image"),
-            $linksDestinations = d.querySelectorAll(".link-destination"),
-            $linksNavBar = d.querySelectorAll(".nav-link");
-
-
-        const setData = (index) => {
-            getData().then(data => {
-                $destinationName.textContent = data.destinations[index].name;
-                $destinationInfo.textContent = data.destinations[index].description;
-                $avgDistance.textContent = data.destinations[index].distance;
-                $travelTime.textContent = data.destinations[index].travel;
-                $imgDestination.src = data.destinations[index].images.png;
-                $imgDestination.alt = data.destinations[index].name;
-            });
-        }
-
-
-
-        d.addEventListener("DOMContentLoaded", e => {
-            setBackgroundResponsive($background, "bg-destination", "bg-destination-md", "bg-destination-lg");
-            setData(0);
-            let url = document.URL;
-            setTimeout(() => {
-                let $linksNav = d.querySelectorAll(".nav-link");
-                $linksNav.forEach(link => {
-                    if (link.href === url) navigationEffects(link, $linksNav, "nav-link-is-active");
-                });
-            }, 200);
-
-        });
-
-
-        d.addEventListener("click", e => {
-            if (e.target.matches("#moon-destination")) {
-                setData(0);
-                navigationEffects(e.target, $linksDestinations, "is-active");
-            }
-            if (e.target.matches("#mars-destination")) {
-                navigationEffects(e.target, $linksDestinations, "is-active");
-                setData(1);
-            }
-            if (e.target.matches("#europa-destination")) {
-                navigationEffects(e.target, $linksDestinations, "is-active");
-                setData(2);
-            }
-            if (e.target.matches("#titan-destination")) {
-                navigationEffects(e.target, $linksDestinations, "is-active");
-                setData(3);
-            }
-        });
-
-        window.addEventListener("resize", e => setBackgroundResponsive($background, "bg-destination", "bg-destination-md", "bg-destination-lg"));
-
-
-
-    </script>
-</body>
-
-</html>
+    <div class="col-12 col-lg-6 px-md-5 d-flex flex-column justify-content-center align-items-lg-start">
+        <ul class="d-flex justify-content-center p-0">
+            <li>
+                <a href="#" class="text-decoration-none pb-2 fw-light nav-text is-active-destination link-destination"
+                    id="moon-destination">MOON</a>
+            </li>
+            <li>
+                <a href="#" class="text-decoration-none pb-2 fw-light nav-text link-destination mx-3"
+                    id="mars-destination">MARS</a>
+            </li>
+            <li>
+                <a href="#" class="text-decoration-none pb-2 fw-light nav-text link-destination mx-3"
+                    id="europa-destination">EUROPA</a>
+            </li>
+            <li>
+                <a href="#" class="text-decoration-none pb-2 fw-light nav-text link-destination"
+                    id="titan-destination">TITAN</a>
+            </li>
+        </ul>
+        <h1 class="heading-3 text-white text-center mt-4 text-uppercase" id="destination-name"></h1>
+        <p class="fw-light text-white-50 text-center text-lg-start mb-4 px-md-5 px-lg-0" id="destination-info">
+        </p>
+        <div class="border border-bottom-0 border-secondary mb-4 w-100"></div>
+        <div
+            class="text-center pt-2 pb-4 text-white-50 h-auto d-flex flex-column flex-md-row justify-content-evenly align-items-center w-100">
+            <div>
+                <h4 class="sub-heading-2">AVG. DISTANCE</h4>
+                <span id="avg-distance" class="sub-heading-1 text-white"></span>
+            </div>
+            <div>
+                <h4 class="sub-heading-2 mt-4 mt-md-0">EST. TRAVEL TIME</h4>
+                <span id="travel-time" class="sub-heading-1 text-white"></span>
+            </div>
+        </div>
+    </div>
+</div>

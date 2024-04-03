@@ -1,17 +1,17 @@
-export default function setBackgroundResponsive(target,bg,bgMD,bgLG) {
+export default function setBackgroundResponsive(target,bg) {
     if (window.innerWidth < 767) {
-        target.classList.add(bg);
-        if (target.classList.contains(bgMD)) target.classList.remove(bgMD);
-        if (target.classList.contains(bgLG)) target.classList.remove(bgLG);
+        target.classList.add(bg[0]);
+        if (target.classList.contains(bg[1])) target.classList.remove(bg[1]);
+        if (target.classList.contains(bg[2])) target.classList.remove(bg[2]);
     }
     if (window.innerWidth >= 767) {
-        target.classList.add(bgMD);
-        if (target.classList.contains(bg)) target.classList.remove(bg);
-        if (target.classList.contains(bgLG)) target.classList.remove(bgLG);
+        target.classList.add(bg[1]);
+        if (target.classList.contains(bg[0])) target.classList.remove(bg[0]);
+        if (target.classList.contains(bg[2])) target.classList.remove(bg[2]);
     }
     if (window.innerWidth >= 1024) {
-        target.classList.add(bgLG);
-        if (target.classList.contains(bg)) target.classList.remove(bg);
-        if (target.classList.contains(bgMD)) target.classList.remove(bgMD);
+        target.classList.add(bg[2]);
+        if (target.classList.contains(bg[0])) target.classList.remove(bg[0]);
+        if (target.classList.contains(bg[1])) target.classList.remove(bg[1]);
     }
 }

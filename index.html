@@ -11,15 +11,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" href="./styles/home.css">
+  <link rel="stylesheet" href="./styles/destination.css">
+  <link rel="stylesheet" href="./styles/crew.css">
+  <link rel="stylesheet" href="./styles/technology.css">
   <title>Frontend Mentor | Space tourism website</title>
 </head>
 
-<body class="vh-100">
-  <div class="container-fluid bg-home w-100 h-100 p-0 d-flex flex-column">
+<body class="min-vh-100">
+  <div class="container-fluid bg-home w-100 min-vh-100 p-0 d-flex flex-column" id="bg-page">
     <nav class="navbar navbar-expand-md flex-grow-0">
       <div class="container-fluid row p-0 m-0 ">
-        <a href="./index.html" class="col-2">
+        <a data-url="./starter-code/home.html" class="col-2">
           <img src="./assets/shared/logo.svg" class="img-fluid" alt="logo">
         </a>
         <button class="navbar-toggler col-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -38,21 +41,22 @@
             <ul class="navbar-nav justify-content-start justify-content-md-center flex-grow-0 p-2 ps-lg-4 h-50">
               <li class="nav-item mb-2 mb-md-0 me-md-3 p-1">
                 <a class="nav-link text-light text-uppercase nav-text p-0 nav-link-is-active" aria-current="page"
-                  href="./index.html"><span class="fw-bold nav-text d-md-none d-lg-inline">00</span> Home</a>
+                  data-url="./starter-code/home.html"><span class="fw-bold nav-text d-md-none d-lg-inline">00</span>
+                  Home</a>
               </li>
               <li class="nav-item mb-2 mb-md-0 me-md-3 p-1">
-                <a class="nav-link text-light text-uppercase nav-text p-0" href="./starter-code/destination.html"><span
-                    class="fw-bold d-md-none d-lg-inline">01</span>
+                <a class="nav-link text-light text-uppercase nav-text p-0"
+                  data-url="./starter-code/destination.html"><span class="fw-bold d-md-none d-lg-inline">01</span>
                   Destination</a>
               </li>
               <li class="nav-item mb-2 mb-md-0 me-md-3 p-1">
-                <a class="nav-link text-light text-uppercase nav-text p-0" href="./starter-code/crew.html"><span
+                <a class="nav-link text-light text-uppercase nav-text p-0" data-url="./starter-code/crew.html"><span
                     class="fw-bold d-md-none d-lg-inline">02</span>
                   Crew</a>
               </li>
               <li class="nav-item mb-2 mb-md-0 me-md-3 p-1">
-                <a class="nav-link text-light text-uppercase nav-text p-0" href="./starter-code/technology.html"><span
-                    class="fw-bold d-md-none d-lg-inline">03</span>
+                <a class="nav-link text-light text-uppercase nav-text p-0"
+                  data-url="./starter-code/technology.html"><span class="fw-bold d-md-none d-lg-inline">03</span>
                   Technology</a>
               </li>
             </ul>
@@ -62,21 +66,8 @@
     </nav>
 
     <main
-      class="container-fluid row mt-5 d-flex flex-column flex-lg-row justify-content-around  align-items-center flex-grow-1">
-      <div class="col-12 col-lg-5 d-flex flex-column align-items-center align-items-lg-start px-md-5">
-        <h3 class="text-light text-uppercase fw-light heading-5 p-0">So, you want to travel to</h3>
-        <h1 class="text-light fw-light text-uppercase my-2 heading-2" id="title-page">Space</h1>
-        <p class="text-light text-center text-lg-start fw-light fs-6 m-0">Let’s face it; if you want to go to space, you
-          might as well
-          genuinely go to
-          outer space and not hover kind of on the edge of it. Well sit back, and relax
-          because we’ll give you a truly out of this world experience!
-        </p>
-      </div>
-      <div class="col-12 col-lg-3 d-flex justify-content-center">
-        <a href="#"
-          class="rounded-circle btn-explore d-flex justify-content-center align-items-center fw-light text-uppercase heading-4">Explore</a>
-      </div>
+      class="container-fluid row d-flex flex-column flex-lg-row justify-content-around  align-items-center flex-grow-1">
+      <div data-include="./starter-code/home.html"></div>
     </main>
   </div>
 
@@ -87,8 +78,18 @@
   <script type="module">
     import setBackgroundResponsive from "./js/background_responsive.js";
     import navigationEffects from "./js/active_link_effect.js";
+    import includeHTML from "./js/include_layout.js";
+    import getData from "../js/get_data.js";
+
     const d = document;
-    const $background = d.querySelector(".bg-home");
+    const $background = d.querySelector("#bg-page");
+    const objBackgrounds = {
+      "./starter-code/home.html": ["bg-home", "bg-home-md", "bg-home-lg"],
+      "./starter-code/destination.html": ["bg-destination", "bg-destination-md", "bg-destination-lg"],
+      "./starter-code/crew.html": ["bg-crew", "bg-crew-md", "bg-crew-lg"],
+      "./starter-code/technology.html": ["bg-technology", "bg-technology-md", "bg-technology-lg"]
+    }
+
 
     window.addEventListener("resize", e => {
       setBackgroundResponsive($background, "bg-home", "bg-home-md", "bg-home-lg");
@@ -97,18 +98,23 @@
 
     d.addEventListener("DOMContentLoaded", e => {
       setBackgroundResponsive($background, "bg-home", "bg-home-md", "bg-home-lg");
-      let url = document.URL;
-      setTimeout(() => {
-        let $linksNav = d.querySelectorAll(".nav-link");
-        $linksNav.forEach(link => {
-          if (link.href === url) navigationEffects(link, $linksNav, "nav-link-is-active");
-        });
-      }, 200);
-
+      const $replaceElement = d.querySelector("[data-include]");
+      includeHTML($replaceElement, $replaceElement.getAttribute("data-include"));
     });
 
+    d.addEventListener("click", e => {
+      if (e.target.matches(".nav-link")) {
+        const $replaceElement = d.querySelector("main > div");
+        let dataUrl = e.target.getAttribute("data-url");
+        $replaceElement.setAttribute("data-include", dataUrl);
+        includeHTML($replaceElement, $replaceElement.getAttribute("data-include"));
+        let getNamePage = dataUrl.slice(dataUrl.lastIndexOf('/') + 1).replace(".html", "");
+
+      }
+    });
+
+
   </script>
-  <script src="js/include_layout.js"></script>
 </body>
 
 </html>

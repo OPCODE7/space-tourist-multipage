@@ -15,6 +15,10 @@
     box-sizing: border-box;
 }
 
+ul{
+    list-style: none;
+}
+
 
 .bg-home {
     background: url("../assets/home/background-home-mobile.jpg") no-repeat center center / cover;
@@ -81,6 +85,10 @@
 .nav-text {
     font-size: 16px;
     letter-spacing:2px;
+}
+
+.nav-link{
+    cursor: pointer;
 }
 
 .nav-link:hover {
