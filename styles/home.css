@@ -92,7 +92,7 @@ ul{
 }
 
 .nav-link:hover {
-    border-bottom: 1px solid var(--very-light-gray);
+    border-bottom: 2px solid var(--very-light-gray);
 }
 
 .bg-home-md {
@@ -119,7 +119,7 @@ ul{
 }
 
 .nav-link-is-active{
-    border-bottom: 1px solid #FFFFFF;
+    border-bottom: 2px solid #FFFFFF;
 }
 
 @media(min-width: 1024px){

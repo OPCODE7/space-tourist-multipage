@@ -76,6 +76,7 @@
     </script>
 
   <script type="module">
+    import navigationEffects from "../js/active_link_effect.js";
     import setBackgroundResponsive from "./js/background_responsive.js";
     import includeHTML from "./js/include_layout.js";
     import DataDestination from "./js/destination_page.js";
@@ -83,13 +84,14 @@
     import DataTechnology from "./js/technology_page.js";
 
     const d = document;
-    const $background = d.querySelector("#bg-page");
+    const $background = d.querySelector("#bg-page"),$linksPages= d.querySelectorAll(".nav-link");
     const objBackgrounds = {
       "./starter-code/home.html": ["bg-home", "bg-home-md", "bg-home-lg"],
       "./starter-code/destination.html": ["bg-destination", "bg-destination-md", "bg-destination-lg"],
       "./starter-code/crew.html": ["bg-crew", "bg-crew-md", "bg-crew-lg"],
       "./starter-code/technology.html": ["bg-technology", "bg-technology-md", "bg-technology-lg"]
     }
+    
 
 
     window.addEventListener("resize", e => {
@@ -110,6 +112,8 @@
         $replaceElement.setAttribute("data-include", dataUrl);
         includeHTML($replaceElement, $replaceElement.getAttribute("data-include"));
         let getNamePage = dataUrl.slice(dataUrl.lastIndexOf('/') + 1).replace(".html", "");
+
+        navigationEffects(e.target, $linksPages, "nav-link-is-active");
 
         if (getNamePage === "destination") {
           setTimeout(() => {
