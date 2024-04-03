@@ -1,38 +1,43 @@
 import getData from "../js/get_data.js";
-import setBackgroundResponsive from "../js/background_responsive.js";
 import navigationEffects from "../js/active_link_effect.js";
 
-const d = document,
-    $background = d.querySelector(".bg-technology"),
-    $technologyName = d.getElementById("technology-name"),
-    $technologyDescription = d.getElementById("tech-description"),
-    $imgTechnology = d.getElementById("technology-image"),
-    $linksTechnology = d.querySelectorAll(".link-technology");
 
-const setData = (index) => {
-    getData().then(data => {
-        $technologyName.textContent = data.technology[index].name;
-        $technologyDescription.textContent = data.technology[index].description;
-        $imgTechnology.src = data.technology[index].images.portrait;
-        $imgTechnology.alt = data.technology[index].name;
-    });
+export default class DataTechnology {
+    constructor(techName, techDescription, techImg, links) {
+        this.name = techName;
+        this.description = techDescription;
+        this.image = techImg;
+        this.links = links;
+    }
+
+    setData = (index) => {
+        getData().then(data => {
+            this.name.textContent = data.technology[index].name;
+            this.description.textContent = data.technology[index].description;
+            this.image.src = data.technology[index].images.portrait;
+            this.image.alt = data.technology[index].name;
+        });
+    }
+
+
+    loadDataTech() {
+        this.setData(0);
+
+        document.addEventListener("click", e => {
+            if (e.target.matches("#tech-1")) {
+                this.setData(0);
+                navigationEffects(e.target, this.links, "is-active-tech");
+            }
+            if (e.target.matches("#tech-2")) {
+                navigationEffects(e.target, this.links, "is-active-tech");
+                this.setData(1);
+            }
+            if (e.target.matches("#tech-3")) {
+                navigationEffects(e.target, this.links, "is-active-tech");
+                this.setData(2);
+            }
+        });
+    }
 }
-
-setData(0);
-
-d.addEventListener("click", e => {
-    if (e.target.matches("#tech-1")) {
-        setData(0);
-        navigationEffects(e.target, $linksTechnology, "is-active-tech");
-    }
-    if (e.target.matches("#tech-2")) {
-        navigationEffects(e.target, $linksTechnology, "is-active-tech");
-        setData(1);
-    }
-    if (e.target.matches("#tech-3")) {
-        navigationEffects(e.target, $linksTechnology, "is-active-tech");
-        setData(2);
-    }
-});
 
 

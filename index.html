@@ -77,9 +77,10 @@
 
   <script type="module">
     import setBackgroundResponsive from "./js/background_responsive.js";
-    import navigationEffects from "./js/active_link_effect.js";
     import includeHTML from "./js/include_layout.js";
-    import getData from "../js/get_data.js";
+    import DataDestination from "./js/destination_page.js";
+    import DataCrew from "./js/crew_page.js";
+    import DataTechnology from "./js/technology_page.js";
 
     const d = document;
     const $background = d.querySelector("#bg-page");
@@ -110,6 +111,45 @@
         includeHTML($replaceElement, $replaceElement.getAttribute("data-include"));
         let getNamePage = dataUrl.slice(dataUrl.lastIndexOf('/') + 1).replace(".html", "");
 
+        if (getNamePage === "destination") {
+          setTimeout(() => {
+            const $destinationName = d.getElementById("destination-name"),
+              $destinationInfo = d.getElementById("destination-info"),
+              $avgDistance = d.getElementById("avg-distance"),
+              $travelTime = d.getElementById("travel-time"),
+              $imgDestination = d.getElementById("destination-image"),
+              $linksDestinations = d.querySelectorAll(".link-destination");
+            let destination = new DataDestination($destinationName, $destinationInfo, $avgDistance, $travelTime, $imgDestination, $linksDestinations);
+
+            destination.loadDataDestination();
+          }, 100);
+        }
+
+        if (getNamePage === "crew") {
+          setTimeout(() => {
+            const $crewName = d.getElementById("crew-name"),
+              $crewRol = d.getElementById("crew-rol"),
+              $crewBio = d.getElementById("crew-bio"),
+              $imgCrew = d.getElementById("crew-image"),
+              $linksCrews = d.querySelectorAll(".link-crew");
+
+            let crew = new DataCrew($crewName, $crewRol, $crewBio, $imgCrew, $linksCrews);
+            crew.loadDataCrew();
+          }, 100);
+        }
+
+        if (getNamePage === "technology") {
+          setTimeout(() => {
+            const $technologyName = d.getElementById("technology-name"),
+              $technologyDescription = d.getElementById("tech-description"),
+              $imgTechnology = d.getElementById("technology-image"),
+              $linksTechnology = d.querySelectorAll(".link-technology");
+
+            let tech = new DataTechnology($technologyName, $technologyDescription, $imgTechnology, $linksTechnology);
+            tech.loadDataTech();
+
+          }, 100);
+        }
       }
     });
 
